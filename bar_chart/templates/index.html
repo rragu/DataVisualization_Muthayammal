@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization with Flask</title>
+</head>
+<body>
+    <h1>Data Visualization with Flask</h1>
+
+    <form action="/generate_chart" method="post">
+        <label for="category">Category:</label>
+        <input type="text" name="category" id="category" required>
+        <br>
+        <label for="value">Value:</label>
+        <input type="number" name="value" id="value" required>
+        <br>
+        <button type="submit">Generate Chart</button>
+    </form>
+
+    {% if chart_html %}
+        <div>
+            {{ chart_html | safe }}
+        </div>
+    {% endif %}
+</body>
+</html>
